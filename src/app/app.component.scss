@@ -1,0 +1,283 @@
+@import "../styles";
+
+$blue: #98befb;
+$red: #ff5858;
+$bright-blue: #aedef7;
+$brighter-blue:#9CECFB;
+$dirty-white: #f8f9fa9e;
+$brown: #3a3636;
+
+
+
+.container{
+  justify-content: center;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  min-height: 570px;
+  max-width: none;
+  @include extra-small {
+    background-color: $dirty-white;
+  }
+
+  @include medium-down{
+    min-height: 710px;
+  }
+}
+
+.result-currency{
+  margin-block: 20px;
+  width: 100%;
+
+  @include extra-small {
+  width: 260px;
+  }
+  @include small-up {
+    width: 398px;
+  }
+  @include medium-up {
+    width: 100%;
+  }
+
+  .result-from{
+    font-weight: 800;
+    color: #3a3636;
+  }
+  .result-to{
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom:15px;
+  }
+  .result-info{
+    font-size: 0.9rem;
+    white-space: pre;
+    font-weight: 500;
+  }
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  margin: auto;
+  padding: 20px;
+  background-color: $dirty-white;
+  width: 300px;
+  height: auto;
+  box-shadow: 0 0 10px 1px rgba(0 0 0 / 20%);
+  border-radius: 5px;
+  h1{
+    font-weight: 800;
+    margin-bottom:20px;
+
+    @include large-up {
+      margin-bottom:60px;
+    }
+
+    @include extra-small {
+      margin-bottom:40px;
+    }
+  }
+
+  .switch-btn{
+    height: 50px;
+    width: 50px;
+    margin: auto;
+    text-align: center;
+    border-radius: 50%;
+    outline: 2px solid #d2d2d2;
+    &:hover{
+      outline: 2px solid rgb(153, 153, 200);
+    }
+
+
+    &:active {
+      i:before{
+        animation: flip 0.2s 1 linear;
+      }
+
+      // animation: flip 2s 1 linear;
+    }
+    @keyframes flip {
+      0% {
+        transform: rotateY(0deg);
+      }
+      50% {
+        transform: rotateY(180deg);
+      }
+      to {
+        transform: rotateY(0deg);
+      }
+    }
+  }
+
+
+
+
+  @include extra-small {
+    width: 100%;
+    border-radius: 0;
+    border: none;
+    top: auto;
+    left: auto;
+    transform: none;
+
+    background-color: transparent;
+    box-shadow: none;
+
+  }
+  @include small-up {
+    width: 440px;
+  }
+
+  @include large-up {
+    width: 950px;
+    padding-block: 50px;
+  }
+  @include extra-large {
+    width: 1150px;
+    padding-inline: 130px;
+    padding-block: 100px;
+  }
+}
+
+.input-amount{
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  .prefix {
+    font-weight: 300;
+    color: #999;
+  }
+  input {
+    flex-grow: 1;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    font-weight: 600;
+  }
+  &:focus-within {
+
+      background-color: white;
+      outline: 2px solid rgb(153, 153, 200);
+
+  }
+}
+
+.submit-btn {
+
+  text-align: right;
+  justify-content: end;
+
+  margin-top: 20px;
+  @include medium-down {
+    text-align: center;
+    justify-content: center;
+  }
+  button{
+    text-align: center;
+    width: 160px;
+    height: 50px;
+    border-radius: 5px;
+    color: white;
+    font-weight:500;
+    background-color: #417de0a3;
+
+
+      transition: 0.5s;
+
+
+    &:hover{
+      background-color: $bright-blue;
+      transition: 0.1s;
+      color: #000;
+      outline: 2px solid rgb(153, 153, 200);
+      border: none;
+      a,i{
+        &.bi{
+          color:  rgb(153, 153, 200);
+        }
+      }
+    }
+  }
+
+
+}
+
+.form-currency{
+  display: grid;
+  gap: 4px 16px;
+  grid-auto-flow: column;
+  grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr) auto minmax(100px, 1fr);
+  grid-template-rows: auto [input-row-start] auto;
+  label{
+    text-align: left;
+  }
+
+  @include extra-small {
+    gap: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    grid-auto-flow: row;
+    grid-template-columns: auto ;
+    grid-template-rows: auto;
+    label{
+      text-align: center;
+      margin-bottom:-8px;
+    }
+  }
+  @include small-up {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    grid-auto-flow: row;
+    grid-template-columns: auto [input-row-start] auto;
+    grid-template-rows: minmax(100px, 1fr) minmax(100px, 1fr) auto minmax(100px, 1fr);
+  }
+
+  @include medium-up {
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    grid-auto-flow: row;
+    grid-template-columns: auto [input-row-start] auto;
+    grid-template-rows: minmax(100px, 1fr) minmax(100px, 1fr) auto minmax(100px, 1fr);
+  }
+
+  @include large-up {
+    label {
+      text-align: left;
+    }
+    display: grid;
+    gap: 4px 16px;
+    grid-auto-flow: column;
+    grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr) auto minmax(100px, 1fr);
+    grid-template-rows: auto [input-row-start] auto;
+  }
+
+
+}
+
+.lastUpdate{
+  position: absolute;
+  right: 15px;
+  bottom: 10px;
+
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #646060;
+
+}
+
+
