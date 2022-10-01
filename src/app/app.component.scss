@@ -16,7 +16,7 @@ $brown: #3a3636;
   padding: 0;
   align-items: center;
   overflow: auto;
-  height: 100%;
+  height: 90%;
   width: 100%;
   min-height: 570px;
   max-width: none;
@@ -28,7 +28,12 @@ $brown: #3a3636;
     min-height: 710px;
   }
 }
-
+header{
+  height: 50px;
+  width: 100%;
+  background: #77a0e4;
+  text-align: center;
+}
 .result-currency{
   margin-block: 20px;
   width: 100%;

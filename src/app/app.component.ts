@@ -31,7 +31,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   public resultFrom;
   public resultTo;
-  public resultInfo;
+  
+  public resultInfoHeader;
   public isResult = false;
   public lastUpdate;
   get from_symbol() {
@@ -80,8 +81,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     let result = this.amount_value*rateBase;
     this.resultFrom = this.amount_value + " " + (this._from.full_name ? this._from.full_name :  this._from.name) + " =";
     this.resultTo = (result).toFixed(5) + " " + (this.to.full_name ? this.to.full_name :  this.to.name);
-    this.resultInfo = (1).toFixed(2) + " " + this._from.name + " = " + rateBase.toFixed(6) + " " +this.to.name + '\n '
-                      +  (1).toFixed(2) + " " + this.to.name + " = " + (1/rateBase).toFixed(6) + " " +this._from.name ;
+    /*this.resultInfo = (1).toFixed(2) + " " + this._from.name + " = " + rateBase.toFixed(6) + " " +this.to.name + '\n '
+      + (1).toFixed(2) + " " + this.to.name + " = " + (1 / rateBase).toFixed(6) + " " + this._from.name;*/
+    this.resultInfoHeader = (1).toFixed(2) + " " + this._from.name + " = " + rateBase.toFixed(6) + " " +this.to.name;
   }
 
   onSubmit(): void {
@@ -117,3 +119,5 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   }
 }
+
+
